@@ -1,0 +1,13 @@
+body{
+  background: cyan;
+  text-align: center;
+}
+
+.time-image img{
+  width: 100px;
+  height: 100px;
+}
+
+.current-time{
+  background-color: gray;
+}
