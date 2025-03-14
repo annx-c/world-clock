@@ -1,13 +1,79 @@
-body{
+
+html, body{
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin:  0;
   background: cyan;
   text-align: center;
+  overflow-x: hidden;
 }
 
-.time-image img{
-  width: 100px;
-  height: 100px;
+a{
+  text-decoration: none;
+  color: white;
+}
+
+
+
+.container{
+  margin-top: 60px;
+  width: 100%;
+}
+
+.time-container{
+  font-family: "Abel", serif;
+  border-radius: 15px;
+  margin: 35px 45px;
+  background: linear-gradient(to bottom, #AEE2FF, #C2DED6, #F8D568);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
 }
 
 .current-time{
-  background-color: gray;
+  width: 50%;
+  padding: 0 40px;
 }
+
+.time-image img{
+  width: 200px;
+  height: 200px;
+}
+
+.cities{
+  background-color: rgba(0, 0, 0, 0.26);
+  border-radius: 5px;
+  color: black;
+  padding: 0 25px;
+  align-items: center;
+  width: 50%;
+}
+
+.cities .listed-city{
+  padding: 5px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 20px;
+}
+
+.listed-city .date-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5PX;
+}
+
+.date-container {
+  margin: 0;
+}
+
+.date-container .month-day p{
+  font-size: 10px;
+  margin: 0;
+  margin-top: 5px;
+}
+
+
