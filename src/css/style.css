@@ -1,79 +1,269 @@
-
-html, body{
-  height: 100%;
-  width: 100%;
+html,
+body {
   padding: 0;
-  margin:  0;
-  background: cyan;
+  margin: 0;
+  min-height: 100vh;
   text-align: center;
   overflow-x: hidden;
+  font-family: "Abel", serif;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(to bottom, #a1dff3 0%, #f7b733 100%);
 }
 
-a{
+a {
   text-decoration: none;
+}
+
+h1 {
+  margin: 0 0 10px 0;
+  font-size: 30px;
+  font-style: italic;
+  font-weight: normal;
   color: white;
 }
 
-
-
-.container{
-  margin-top: 60px;
-  width: 100%;
+select {
+  width: 200px;
+  height: 40px;
+  padding: 1opx;
+  border-radius: 15px;
+  font-style: italic;
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
+  transition: all 0.3s ease-in-out;
 }
 
-.time-container{
-  font-family: "Abel", serif;
+select:hover {
+  background-color: white;
+  color: black;
+}
+
+/* Apartado de selecion de ciudad - City selection section */
+.select-city {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  background: rgba(23, 22, 22, 0.268); /* Fondo semitransparente */
+  backdrop-filter: blur(10px); /* Desenfoque */
+}
+
+.select-city img {
+  width: 50px;
+  height: 50px;
+}
+
+/* Apartado de la contenedor */
+.container {
+  margin-top: 20px;
+  width: 100%;
+  flex: 1;
+}
+
+.time-container {
+  text-transform: uppercase;
   border-radius: 15px;
-  margin: 35px 45px;
-  background: linear-gradient(to bottom, #AEE2FF, #C2DED6, #F8D568);
+  margin: 10px 45px;
+  background: linear-gradient(to bottom, #aee2ff, #c2ded6, #f8d568);
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px;
 }
 
-.current-time{
+/* Apartado de horario principal - Main schedule section */
+
+.current-time {
   width: 50%;
   padding: 0 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.time-image img{
-  width: 200px;
-  height: 200px;
+.current-time h2 {
+  font-size: 25px;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
 }
 
-.cities{
-  background-color: rgba(0, 0, 0, 0.26);
-  border-radius: 5px;
-  color: black;
+@keyframes animatedTimeImage {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  25% {
+    transform: rotate(90deg) scale(1.1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1);
+  }
+  75% {
+    transform: rotate(270deg) scale(1.1);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+.time-image img {
+  margin: 20px;
+  width: 150px;
+  height: 150px;
+  animation: animatedTimeImage 10s linear infinite;
+}
+
+.current-time .current-hour h2 {
+  font-size: 55px;
+  margin: 0;
+}
+
+.current-time .current-date p {
+  font-style: italic;
+  font-size: 18px;
+  margin-top: 15px;
+}
+
+/* Apartado de los horarios de las ciudades - Section on city timetables*/
+.cities {
+  border-left: 1px solid black;
   padding: 0 25px;
   align-items: center;
   width: 50%;
 }
 
-.cities .listed-city{
-  padding: 5px 10px;
+hr {
+  width: 100%;
+  margin: 0 auto;
+  border: 1px solid #1a28523e;
+}
+
+.cities .listed-city {
+  font-family: "Abel", serif;
+  color: black;
+  width: 100%;
+  border: none;
+  background: transparent;
+  padding: 2px 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-radius: 50px;
   font-size: 20px;
+  transition: all 0.5s ease-in-out;
+  background-size: 200% auto; /* Permite la animación */
 }
 
-.listed-city .date-container{
+.cities .listed-city:hover {
+  cursor: pointer;
+  color: white;
+  background-image: linear-gradient(
+    to right,
+    #ffd700 0%,
+    #ffa500 51%,
+    #ff4500 100%
+  );
+  background-position: right center;
+}
+
+.listed-city .date-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 5PX;
+  gap: 5px;
 }
 
 .date-container {
   margin: 0;
 }
 
-.date-container .month-day p{
+.date-container p,
+.city-time p {
+  font-weight: bold;
+}
+
+.date-container .month-day p {
   font-size: 10px;
   margin: 0;
   margin-top: 5px;
 }
 
+/*Apartado de footer - Footer section */
+footer {
+  padding: 10px;
+  background-color: black;
+  color: white;
+}
 
+footer a {
+  color: white;
+}
+
+footer .footer-content p {
+  margin: 5px 0 15px 0;
+}
+
+footer .social-icons a {
+  margin: 0 10px;
+}
+
+footer a:hover {
+  color: grey;
+}
+
+
+/***************************************************/
+/*MODO NOCHE - Night mode
+
+.body-night {
+  background: linear-gradient(to bottom, #0b1e39 0%, #1a2a48 50%, #2d3e5e 100%);
+  color: white;
+}
+
+.container-night {
+  background: linear-gradient(
+    to bottom,
+    #0b1e39 50%,
+    #1e3a5f 80%,
+    #3b597e 100%
+  );
+}
+
+.cities-night {
+  border-left: 1px solid white;
+}
+
+.cities-night a {
+  color: white;
+}
+
+.hr-night {
+  border-bottom: 1px solid white;
+}
+
+.cities-night .listed-city {
+  color: white;
+}
+
+.cities-night .listed-city:hover {
+  background-image: linear-gradient(
+    to right,
+    #d4d7dd 0%,
+    #6c6f7a 50%,
+    #383a40 100%
+  );
+  color: black;
+  background-position: right center;
+}
+
+.footer-night {
+  background-color: white;
+  color: black;
+}
+
+.footer-night a {
+  color: black;
+}
+*/

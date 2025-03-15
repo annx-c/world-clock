@@ -1,36 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Abel&family=Alegreya+Sans+SC:ital,wght@1,300;1,400&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Abel&family=Alegreya+Sans+SC:ital,wght@1,300;1,400&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <link rel="stylesheet" href="src/css/style.css">
   <title>World CLock - Annx_C</title>
 </head>
-<body>
-  <div class="container">
+
+<body class="body-night ">
+  <nav class="select-city">
     <h1>World Clock</h1>
+    <img src="src/image/world.gif" alt="">
     <select name="cities" id="cities">
       <option value="">Select a city...</option>
       <option value="">London</option>
       <option value="">New York</option>
       <option value="">Rome</option>
     </select>
-    <div class="time-container">
+  </nav>
+  
+  <div class="container">
+    <div class="time-container container-night ">
       <div class="current-time">
         <h2>America/Asuncion</h2>
         <div class="time-image">
-          <img src="src/image/sun.png" alt="sun-image">
+          <img src="src/image/sun.png" alt="time-image">
         </div>
-        <div class="-current-hour">
+        <div class="current-hour">
           <h2>15:23:12 PM</h2>
         </div>
         <div class="current-date">
           <p>Sunday, March 12th 2025</p>
         </div>
       </div>
-      <div class="cities">
-        <div class="listed-city">
+      <div class="cities cities-night">
+        <button class="listed-city ">
           <div class="date-container">
             <p class="date">12</p>
             <section class="month-day">
@@ -44,8 +53,11 @@
           <div class="city-time">
             <p class="city-time-current">02:12 PM</p>
           </div>
-        </div>
-        <div class="listed-city">
+        </button>
+        
+        <hr class="hr-night">
+        
+        <button class="listed-city">
           <div class="date-container">
             <p class="date">12</p>
             <section class="month-day">
@@ -59,8 +71,10 @@
           <div class="city-time">
             <p class="city-time-current">02:12 PM</p>
           </div>
-        </div>
-        <div class="listed-city">
+        </button>
+        
+        <hr class="hr-night">
+        <button class="listed-city">
           <div class="date-container">
             <p class="date">12</p>
             <section class="month-day">
@@ -74,8 +88,9 @@
           <div class="city-time">
             <p class="city-time-current">02:12 PM</p>
           </div>
-        </div>
-        <div class="listed-city">
+        </button>
+        <hr class="hr-night">
+        <button class="listed-city">
           <div class="date-container">
             <p class="date">12</p>
             <section class="month-day">
@@ -89,8 +104,11 @@
           <div class="city-time">
             <p class="city-time-current">02:12 PM</p>
           </div>
-        </div>
-        <div class="listed-city">
+        </button>
+        
+        <hr class="hr-night">
+       
+        <button class="listed-city">
           <div class="date-container">
             <p class="date">12</p>
             <section class="month-day">
@@ -104,8 +122,10 @@
           <div class="city-time">
             <p class="city-time-current">02:12 PM</p>
           </div>
-        </div>
-        <div class="listed-city">
+        </button>
+        
+        <hr class="hr-night">
+        <button class="listed-city">
           <div class="date-container">
             <p class="date">12</p>
             <section class="month-day">
@@ -119,12 +139,29 @@
           <div class="city-time">
             <p class="city-time-current">02:12 PM</p>
           </div>
-        </div>
+        </button>
+        
+        
       </div>
     </div>
-   
   </div>
-  
+
 </body>
+<footer class="footer-night">
+  <div class="footer-content">
+    <p>© 2025 Annx_C - All rights reserved. | Open Source: <a 
+        href="https://github.com/annx-c/world-clock" target="_blank">Code</a>
+    </p>
+    <div class="social-icons">
+      <a href="https://github.com/annx-c" target="_blank" ><i class="fab fa-github"></i></a>
+      <a href="https://www.instagram.com/annx_93/?igsh=MXRqeG03aTd2NXA2Mg%3D%3D#" target="_blank" ><i
+          class="fab fa-instagram"></i></a>
+      <a href="https://www.linkedin.com/authwall?trk=bf&trkInfo=AQF98MoxK_9AWgAAAZU0TSGosFfVhT9rhJ_G8JPYCZD5SlB1ekKiWiW_yHJr9FJ_hkMJxficMirJdT7alkqOkMlDrafjNZUqa7E1SOjpOTTLfAnHCC_w2kczHYdDKyifEgGah-A=&original_referer=&sessionRedirect=https%3A%2F%2Fwww.linkedin.com%2Fin%2Fana-ca%25C3%25B1ete-815892280%3Futm_source%3Dshare%26utm_campaign%3Dshare_via%26utm_content%3Dprofile%26utm_medium%3Dandroid_app"
+        target="_blank" ><i class="fab fa-linkedin"></i></a>
+    </div>
+  </div>
+
+</footer>
 <script src="/src/javascript/index.js"></script>
+
 </html>
