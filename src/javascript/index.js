@@ -18,20 +18,11 @@ function updateTime(citiesId) {
   cityTimeElement.innerHTML = cityTime.format("HH:mm [<small>]A[</small>]");
 }
 
-/* LISTAR CIUDAD - LIST CITY */
-function listedCity(element) {
-  let cityId = element.id;
 
-  /* VERIFICAR SI EL ID DE LA CIUDAD EXISTE - CHECK IF CITY ID EXISTS */
-  if (cityId) {
-    updateTime(cityId); //Llamar a a funcion mostrar ciudad
-    setInterval(() => updateTime(cityId), 1000);
-  }
-}
 
 /*MOSTRAR LA CIUDAD -  */
-function updateCity(event) {
-  let cityTimeZone = event.target.value;
+function updateCity(cityTimeZone) {
+ 
   let cityName = cityTimeZone.replace("_", " ").split("/")[1];
   console.log(cityTimeZone);
   let currentCity = moment().tz(cityTimeZone);
@@ -45,13 +36,34 @@ function updateCity(event) {
 
 }
 
+/* LISTAR CIUDAD - LIST CITY */
+function listedCity(element) {
+  let cityId = element.id;
+
+  /* VERIFICAR SI EL ID DE LA CIUDAD EXISTE - CHECK IF CITY ID EXISTS */
+  if (cityId) {
+    updateTime(cityId); //Llamar a a funcion mostrar ciudad
+    setInterval(() => updateTime(cityId), 1000);
+  }
+}
+
 /* OBTENER TODOS LOS ELEMENTOS DE CIUDADES LISTADAS - GET ALL LISTED CITY ELEMENTS */
 let listedCityElements = document.querySelectorAll(".listed-city");
 listedCityElements.forEach((element) => {
-  listedCity(element);
+  element.addEventListener("click", (event) => {
+    let cityTimeZone = event.currentTarget.id;
+    updateCity(cityTimeZone);
+  });
+  listedCity(element); // Llamar a la función listedCity para cada elemento
 });
-
 
 //SELECCIONAR LAS CIUDADES - SELECT CITIES
 let citySelectElement = document.querySelector("#cities");
-citySelectElement.addEventListener("change", updateCity);
+
+citySelectElement.addEventListener("change", (event) => {
+  if (event.target.value.length > 0) {
+    let cityTimeZone = event.target.value;
+    updateCity(cityTimeZone);
+  }
+ 
+});
