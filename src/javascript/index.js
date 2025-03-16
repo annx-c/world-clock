@@ -1,6 +1,5 @@
-/*FUNCION MOSTRAR CIUDAD - FUNCION MOSTRAR CIUDAD */  
+/*MOSTRAR EL HORARIO DE LAS CIUDADES -- SHOW CITY TIMES */  
 function updateTime(citiesId) {
-  console.log(`this ${citiesId}`);
 
   /* LAS CIUDADES Y SUS HORARIOS ACTUALES - CITIES AND THEIR CURRENT SCHEDULES */
   let cityElement = document.getElementById(citiesId);
@@ -30,8 +29,29 @@ function listedCity(element) {
   }
 }
 
+/*MOSTRAR LA CIUDAD -  */
+function updateCity(event) {
+  let cityTimeZone = event.target.value;
+  let cityName = cityTimeZone.replace("_", " ").split("/")[1];
+  console.log(cityTimeZone);
+  let currentCity = moment().tz(cityTimeZone);
+  
+  let currentCityName = document.querySelector(".current-time .city");
+  let currentCityTime = document.querySelector(".current-hour h2");
+  let currentCityDate = document.querySelector(".current-date p")
+  currentCityName.innerHTML = cityName ;
+  currentCityTime.innerHTML = currentCity.format("HH:mm:ss [<small>]A[</small>]")
+  currentCityDate.innerHTML = currentCity.format("dddd, MMMM Do YYYY");
+
+}
+
 /* OBTENER TODOS LOS ELEMENTOS DE CIUDADES LISTADAS - GET ALL LISTED CITY ELEMENTS */
 let listedCityElements = document.querySelectorAll(".listed-city");
 listedCityElements.forEach((element) => {
   listedCity(element);
 });
+
+
+//SELECCIONAR LAS CIUDADES - SELECT CITIES
+let citySelectElement = document.querySelector("#cities");
+citySelectElement.addEventListener("change", updateCity);
