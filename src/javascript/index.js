@@ -22,11 +22,13 @@ function updateTime(citiesId) {
 
 /*MOSTRAR LA CIUDAD -  */
 function updateCity(cityTimeZone) {
- 
-  let cityName = cityTimeZone.replace("_", " ").split("/")[1];
-  console.log(cityTimeZone);
+
+  if (cityTimeZone === "current") {
+    cityTimeZone = moment.tz.guess();
+  }
+
   let currentCity = moment().tz(cityTimeZone);
-  
+  let cityName = cityTimeZone.replace("_", " ").split("/")[1];
   let currentCityName = document.querySelector(".current-time .city");
   let currentCityTime = document.querySelector(".current-hour h2");
   let currentCityDate = document.querySelector(".current-date p")
@@ -67,3 +69,7 @@ citySelectElement.addEventListener("change", (event) => {
   }
  
 });
+
+/*Mostrar la el horario de la localizacion actual - */
+let currentLocation = moment.tz.guess();
+updateCity(currentLocation);
