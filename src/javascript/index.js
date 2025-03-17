@@ -140,7 +140,7 @@ function updateCSS(time) {
   }
 
   //Momento en que se cambia el icono
-  if (time >= "05:00" && time < "18:00") {
+  if (time >= "05:00" && time < "17:00") {
     timeIconlement.src = "src/image/sun.png";
   } else {
     timeIconlement.src = "src/image/moon.png";
