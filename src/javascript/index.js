@@ -20,7 +20,8 @@ function updateTime(citiesId) {
 /* MOSTRAR LA CIUDAD - SHOW CITY */
 let currentCityInterval; // Variable para almacenar el ID del intervalo - Variable to store the interval ID
 function updateCity(cityTimeZone) {
-  function updateCurrentCity() { // Función para actualizar la información de la ciudad seleccionada - Function to update the selected city's information
+  function updateCurrentCity() {
+    // Función para actualizar la información de la ciudad seleccionada - Function to update the selected city's information
     if (cityTimeZone === "current") {
       cityTimeZone = moment.tz.guess();
     }
@@ -35,6 +36,9 @@ function updateCity(cityTimeZone) {
       "HH:mm:ss [<small>]A[</small>]"
     );
     currentCityDate.innerHTML = currentCity.format("dddd, MMMM Do YYYY");
+
+    let currentTimeElement = currentCity.format("HH:ss");
+    updateCSS(currentTimeElement);
   }
 
   // Limpiar cualquier intervalo existente - Clear any existing interval
@@ -82,3 +86,63 @@ citySelectElement.addEventListener("change", (event) => {
 /* MOSTRAR EL HORARIO DE LA LOCALIZACIÓN ACTUAL - SHOW THE TIME OF THE CURRENT LOCATION */
 let currentLocation = moment.tz.guess();
 updateCity(currentLocation);
+
+/************************************************************* */
+function updateCSS(time) {
+  console.log(time);
+  let bodyEelement = document.querySelector("body");
+  let timeComtainerElement = document.querySelector(".time-container");
+  let citiesElement = document.querySelector(".cities");
+  let footerElement = document.querySelector("footer");
+  let timeIconlement = document.querySelector(".time-image img");
+
+  // Limpiar clases anteriores
+  bodyEelement.classList.remove(
+    "body-sunrise",
+    "body-day",
+    "body-sunset",
+    "body-night"
+  );
+  timeComtainerElement.classList.remove(
+    "t-sunrise",
+    "t-day",
+    "t-sunset",
+    "t-night"
+  );
+  citiesElement.classList.remove("c-day", "c-night");
+  footerElement.classList.remove("footer-day", "footer-night");
+
+  if (time >= "05:00" && time < "08:00") {
+    bodyEelement.classList.add("body-sunrise");
+    timeComtainerElement.classList.add("t-sunrise");
+    citiesElement.classList.add("c-day");
+    footerElement.classList.add("footer-day");
+
+
+  } else if (time >= "08:00" && time < "17:00") {
+    bodyEelement.classList.add("body-day");
+    timeComtainerElement.classList.add("t-day");
+    citiesElement.classList.add("c-day");
+    footerElement.classList.add("footer-day");
+
+  } else if (time >= "17:00" && time < "20:00") {
+    bodyEelement.classList.add("body-sunset");
+    timeComtainerElement.classList.add("t-sunset");
+    citiesElement.classList.add("c-night");
+    footerElement.classList.add("footer-night");
+   
+
+  } else {
+    bodyEelement.classList.add("body-night");
+    timeComtainerElement.classList.add("t-night");
+    citiesElement.classList.add("c-night");
+    footerElement.classList.add("footer-night");
+  }
+
+  //Momento en que se cambia el icono
+  if (time >= "05:00" && time < "18:00") {
+    timeIconlement.src = "src/image/sun.png";
+  } else {
+    timeIconlement.src = "src/image/moon.png";
+  }
+}
